@@ -12,6 +12,8 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
 
     var imagePicker: UIImagePickerController!
     @IBOutlet weak var imageView: UIImageView!
+    var processor: ScaledElementProcessor?
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,13 +42,20 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
     
     @IBAction func processImage(_ sender: Any) {
         showLoading()
+        print("ImageView.image = \(self.imageView.image)")
+        print("ImageView.image.cgImage = \(self.imageView.image?.cgImage)")
+        guard let image = self.imageView.image else { return }
         DispatchQueue.global().async() {
-            let processor = ScaledElementProcessor()
-            processor.process(in: self.imageView!) { text in
-                DispatchQueue.main.async{
-                    self.dismiss(animated: true, completion: {
-                        self.showAlert(message: text)
-                    })
+            if self.processor == nil {
+                self.processor = ScaledElementProcessor()
+            }
+            if self.processor != nil {
+                self.processor?.process(in: image) { text in
+                    DispatchQueue.main.async{
+                        self.dismiss(animated: true, completion: {
+                            self.showAlert(message: text)
+                        })
+                    }
                 }
             }
         }

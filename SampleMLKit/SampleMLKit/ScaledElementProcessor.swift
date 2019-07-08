@@ -17,14 +17,8 @@ class ScaledElementProcessor {
         textRecognizer = vision.onDeviceTextRecognizer()
     }
     
-    func process(in imageView: UIImageView,
+    func process(in image: UIImage,
                  callback: @escaping (_ text: String) -> Void) {
-        // 1
-        var image: UIImage = UIImage()
-        DispatchQueue.main.async{
-            guard let img = imageView.image else { return }
-            image = img
-        }
         // 2
         let visionImage = VisionImage(image: image)
         // 3
