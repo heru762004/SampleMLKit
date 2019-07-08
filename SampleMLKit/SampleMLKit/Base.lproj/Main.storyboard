@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="SampleMLKit" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wf8-Lj-JyD">
+                                <rect key="frame" x="169" y="398" width="76" height="30"/>
+                                <state key="normal" title="Take Photo"/>
+                                <connections>
+                                    <action selector="takePhoto:" destination="BYZ-38-t0r" eventType="touchUpInside" id="35c-WH-nRs"/>
+                                </connections>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="CCA-p6-ntG">
+                                <rect key="frame" x="87" y="114" width="240" height="240"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="240" id="Vdl-tb-xAy"/>
+                                    <constraint firstAttribute="width" constant="240" id="awf-6X-zp9"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ddj-0i-7aX">
+                                <rect key="frame" x="156.5" y="446" width="101" height="30"/>
+                                <state key="normal" title="Process Image"/>
+                                <connections>
+                                    <action selector="processImage:" destination="BYZ-38-t0r" eventType="touchUpInside" id="H3c-aZ-NAg"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="wf8-Lj-JyD" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="9mm-Jg-3YJ"/>
+                            <constraint firstItem="CCA-p6-ntG" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="SLv-Fh-NIF"/>
+                            <constraint firstItem="ddj-0i-7aX" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="TpP-72-8Zw"/>
+                            <constraint firstItem="ddj-0i-7aX" firstAttribute="top" secondItem="wf8-Lj-JyD" secondAttribute="bottom" constant="18" id="nSj-6l-teP"/>
+                            <constraint firstItem="wf8-Lj-JyD" firstAttribute="top" secondItem="CCA-p6-ntG" secondAttribute="bottom" constant="44" id="ws2-3W-HEg"/>
+                            <constraint firstItem="CCA-p6-ntG" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="70" id="yvU-O6-9Av"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                    <connections>
+                        <outlet property="imageView" destination="CCA-p6-ntG" id="pB5-pF-cjA"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+        </scene>
+    </scenes>
+</document>
